@@ -70,13 +70,16 @@
 //     div.classList.add(className); //prideda css klase js
 // }
 
-// SET STATE
+// SET STATE SUKURIMAS
 
+// state indikavimas
 let state;
-
+// kvieciama state funkcija
 const setState = (def = true) => {
     if (def) {
+        // pirma karta state busena bus 0
         state = 0;
+        // sekanciais kartais state busena bus +1
     } else {
         state++;
     }
