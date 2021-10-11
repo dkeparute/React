@@ -1,47 +1,73 @@
+// SUKURIAME NAUJA DIV ELEMENTA IR IDEDAME I DIV ID = "root"
+
 // const div = document.createElement('div');
-// // sukuriamas div elementas, bet jo nera matomo narsykles langa
+// // 1. sukuriamas div elementas, bet jo nera matomo narsykles lange
 
 // const root = document.querySelector('#root');
-// // cia surandamas html fiv root'as 
+// //2. cia surandamas html div su id = "root"
 
 // root.appendChild(div);
-// // ir i ta root diva idedamas sitas naujas divas
+// //3. ir i ta root diva idedamas sitas naujas divas
+
+// CREATE = SUKU  RTI
+// APPEND = PRIDETI 
+// QUERY = UZKLAUSTI
 // ---------------------------------------------------------------
 
-// iskvietus Div funkcija ji kvies visus elementus
-// const Div = (t) => {
+// 
+
+// GALIMA PADARYTI TAIP JOG TAME DIVE BUTU KAS NORS UZRASYTA:
+
+// const div = document.createElement('div');
+
+// // sukuriamas tekstas, kuris kol kas tvyko kazkur anapus, tam reikia appendinti teksta:
+// const text = document.createTextNode('Labas, Bebrai');
+// div.appendChild(text);
+// // va dabar tekstas matysis narsykleje
+
+// const root = document.querySelector('#root');
+// root.appendChild(div);
+
+// GALIMA SUKOMPAKTINTI IR ISVESTI FUNKCIJA su argumentu textNote:
+// kai funkcija bus iskviesta ji gales kurti elementus
+
+// const Div = (textNote) => {
 //     const div = document.createElement('div'); //1. sukuriamas tuscias divas, bet jo dar nera narsykleje
-//     const text = document.createTextNode(t); //4. sukuriame lipduka su tam tikru tekstu, bet jo dar nesimato narsykleje
-
+//     const text = document.createTextNode(textNote); //4. sukuriame lipduka su tam tikru tekstu, bet jo dar nesimato narsykleje
 //     div.appendChild(text); // 5. uzklijuojame ta lipduka su tekstu naryskleje
-
 //     const root = document.querySelector('#root'); // 2. surandame vieta kur divas matysis narsykleje
-//     root.appendChild(div); //3. pridedame i matoma narsykleje vieta
+//     root.appendChild(div); //3. pridedame div i matoma narsykleje vieta
+
 // }
+// DIV funkcija tai viskas kas paslepta po kapotu ir mes jo nematom
 
-// Div('labas Betrai');
-// Div('Nu sveikutis barsukai');
-
+// Div('labas, Bebrai'); // komponentas su kuo mes dirbsime
+// Div('Nu sveikutis, Barsukai'); // komponentas su kuo mes dirbsime
+// Div("......................................")
+// // UZDUOTIS IKELTI MASYVA I NARSYKLE JOG ATRODYTU KAIP DIALOGAS:
 // const data = ['Labas, Bebrai', 'Nu sveikutis, Barsukai', 'Kur aini', 'Namo ainu']
 
-// // for each komanda kaip ciklas atspausdins dat duomenis stulpeliu
-// data.forEach(s => Div(s));
-// -------------------------------------------------------------------------
+// Div(data[0]);
+// Div(data[1]);
+// Div(data[2]);
+// Div(data[3]);
+// Div("............................................")
 
-const Elem = (t, el, className) => {
-    const div = document.createElement(el); //1. sukuriamas tuscias divas, bet jo dar nera narsykleje
-    const text = document.createTextNode(t); //4. sukuriame lipduka su tam tikru tekstu, bet jo dar nesimato narsykleje
+// FOR EACH NAUDOJIMAS - CIKLUS ATSPAUSDINS DUOMENIS STULPELIU
+// const data = ['Labas, Bebrai', 'Nu sveikutis, Barsukai', 'Kur aini', 'Namo ainu']
 
+// data.forEach(elementas => Div(elementas));
+
+
+// PATOBULINTAS DIVAS PAVADINIMU ELEMENT:
+const Element = (textNote, kokioTipoElementas, className) => {
+    const div = document.createElement(kokioTipoElementas); //1. sukuriamas tuscias divas, araba p, arba h1 bet jo dar nera narsykleje
+    const text = document.createTextNode(textNote); //4. sukuriame lipduka su tam tikru tekstu, bet jo dar nesimato narsykleje
     div.appendChild(text); // 5. uzklijuojame ta lipduka su tekstu naryskleje
-
     const root = document.querySelector('#root'); // 2. surandame vieta kur divas matysis narsykleje
-    root.appendChild(div); //3. pridedame i matoma narsykleje vieta
+    root.appendChild(div); //3. pridedame div i matoma narsykleje vieta
     div.classList.add(className); //prideda css klase js
 }
+const data = ['Labas, Bebrai', 'Nu sveikutis, Barsukai', 'Kur aini', 'Namo ainu'];
+data.forEach((elementas, nr) => Element(elementas, "h1", nr%2? "pink": "goth"));
 
-const data = ['Labas, Bebrai', 'Nu sveikutis, Barsukai', 'Kur aini', 'Namo ainu']
-
-// const a = salyga ? taip: ne;
-
-// for each komanda kaip ciklas atspausdins dat duomenis stulpeliu
-data.forEach((s, nr) => Elem(s, 'h1', nr%2 ? 'pink' : 'goth'));
