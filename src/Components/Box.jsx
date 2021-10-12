@@ -1,9 +1,9 @@
-function Box(props) {
+function Box({ls, boxColor, boxNumber}) {
 
     return (
 
         <div className="black-box">
-            <span style={{ letterSpacing: props.ls, color: props.boxColor, fontSize: '10px' }}>This is the Black Box number: {props.boxNumber.number}</span>
+            <span style={{ letterSpacing: ls, color: boxColor}}>This is the Black Box number: {boxNumber.number}</span>
 
         </div >
 
