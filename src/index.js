@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+// import App from './App1';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
