@@ -8,12 +8,18 @@ class Clock extends Component {
     }
     componentDidMount() {
 
-        setInterval(
-            () => this.tick(),
-            1000
-        );
+        // setInterval(
+        //     () => this.tick(),
+        //     1000
+        // );
     }
     tick() {
+        this.setState({
+          clock: new Date().toLocaleTimeString()
+        });
+
+    }
+    click() {
         this.setState({
           clock: new Date().toLocaleTimeString()
         });
@@ -22,7 +28,11 @@ class Clock extends Component {
 
     render() {
         return (
+            <div>
             <h1>{this.state.clock}</h1>
+            <button onClick={()=> this.click()}>CLICK</button>
+            </div>
+
         )
 
     }
