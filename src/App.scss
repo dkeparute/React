@@ -43,7 +43,10 @@
     border: 4px dashed green;
     border-radius: 30px;
     position: relative;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     .counter {
         position: absolute;
         top: 0;
@@ -51,5 +54,8 @@
         margin: 20px;
         font-size: 50px;
         font-weight: bold;
+    }
+    button{
+        margin: 10px;
     }
 }
