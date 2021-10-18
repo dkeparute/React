@@ -1,10 +1,14 @@
-import Clock from "./Components/Clock";
+import CowField from "./Components/CowField";
+import SheepField from "./Components/SheepField";
 
 function App() {
 
     return (
         <div>
-            <Clock/>
+            <h1>Hello, Cows!</h1>
+            <CowField counterColor={'green'} />
+            <h1>Hello, Sheeps!</h1>
+            <SheepField/>
         </div>
     );
 }

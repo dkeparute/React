@@ -23,7 +23,6 @@
     padding: 10px;
     border: 3px solid black;
 
-
     .button {
         display: flex;
         justify-content: center;
@@ -34,6 +33,23 @@
         margin-top: 10px;
         border: 3px solid black;
         border-radius: 10px;
+    }
+}
 
+.cow-field {
+    background-color: greenyellow;
+    width: 500px;
+    height: 300px;
+    border: 4px dashed green;
+    border-radius: 30px;
+    position: relative;
+
+    .counter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 20px;
+        font-size: 50px;
+        font-weight: bold;
     }
 }
