@@ -1,45 +1,36 @@
-// I VARIANTAS
-// import { useState } from "react";
-// import ButtonColorChanger from "./Components/ButtonColorChanger";
+// INPUT FORMOS
+
+
+//  CIA NEKONTROLIUOJAMAS KOMPONENTAS, KA NORIU TA RASAU:
+
+// import TextInput from "./Components/TextInput";
 
 // function App() {
 
-//     const [bg, setBg] = useState('black');
-
-//     const changeBg = () => {
-//         setBg('#' + Math.floor(Math.random() * 16777215).toString(16));
-//     }
-
-
 //     return (
-//         <>
-//             <div className='sq' style={{ backgroundColor: bg }}></div>
-//             <ButtonColorChanger kasNors={changeBg} />
-//         </>
+//         <div className='sq'>
+//             <TextInput />
+//         </div>
 //     );
 // }
 // export default App;
 
-// II VARIANTAS
+// KONTROLIUOJAMAS STEITAS:
 
-import { useState } from "react";
-import ButtonColorChanger from "./Components/ButtonColorChanger";
+
+import SelectInput from "./Components/SelectInput";
+import TextInput from "./Components/TextInput";
+import CheckBoxInput from "./Components/CheckBoxInput";
 
 function App() {
 
-    const [bg, setBg] = useState('black');
-
-    // kaip argumenta priims COLOR ir setins tokia spalva, kokia gavo
-    const changeBg = color => {
-        setBg(color);
-    }
-
-
+    
     return (
-        <>
-            <div className='sq' style={{ backgroundColor: bg }}></div>
-            <ButtonColorChanger kasNors={changeBg} />
-        </>
+        <div>
+            <TextInput />
+            <SelectInput/>
+            <CheckBoxInput/>
+        </div>
     );
 }
 export default App;
