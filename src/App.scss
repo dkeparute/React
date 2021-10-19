@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .counter {
         position: absolute;
         top: 0;
@@ -55,7 +55,31 @@
         font-size: 50px;
         font-weight: bold;
     }
-    button{
+    button {
         margin: 10px;
     }
+}
+
+.circler {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.sq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border: 5px solid red;
+    transition: all 4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 10px;
 }
