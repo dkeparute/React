@@ -106,26 +106,47 @@ button {
 .field {
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
-    div {
+    .field_part {
         background-color: aquamarine;
-        margin: 20px 0;
+        margin: 20px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
+        min-width: 100px;
+        min-height: 100px;
+        width: 30%;
+        box-sizing: border-box;
+
         .cow {
-            height: 100px;
-            width: 100px;
+            height: 140px;
+            width: 140px;
             border-radius: 50%;
             border: 4px dotted purple;
             margin: 10px;
         }
         .sheep {
-            height: 100px;
-            width: 100px;
+            height: 140px;
+            width: 140px;
             border: 4px dotted rgb(47, 75, 230);
             margin: 10px;
         }
+        .horse {
+            height: 100px;
+            width: 100px;
+            border: 4px dotted rgb(219, 30, 30);
+            transform: rotate(45deg);
+            margin: 30px;
+        }
     }
+}
+.buttons-holder {
+    margin: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
