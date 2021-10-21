@@ -128,12 +128,18 @@ button {
             border-radius: 50%;
             border: 4px dotted purple;
             margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .sheep {
             height: 140px;
             width: 140px;
             border: 4px dotted rgb(47, 75, 230);
             margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .horse {
             height: 100px;
@@ -141,12 +147,18 @@ button {
             border: 4px dotted rgb(219, 30, 30);
             transform: rotate(45deg);
             margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                transform: rotate(-45deg);
+            }
         }
     }
 }
 .buttons-holder {
     margin: 40px;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
