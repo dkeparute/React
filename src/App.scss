@@ -150,7 +150,7 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            h2 {
+            h2, button {
                 transform: rotate(-45deg);
             }
         }

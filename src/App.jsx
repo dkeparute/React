@@ -29,16 +29,30 @@ function App() {
         setFieldNumber(event.target.value);
     }
 
-    const goHome= (id) => {
+    const goHome = (id) => {
         const fieldCopy = field.slice();
         fieldCopy.forEach((a, i) => {
-            if(a.id === id) {
+            if (a.id === id) {
                 fieldCopy.splice(i, 1);
             }
         });
         setField(fieldCopy);
         localStorage.setItem('animals', JSON.stringify(fieldCopy));
     }
+
+    const groupGoHome = (group) => {
+        const fieldCopy = field.slice();
+        while (true) {
+            const ind = fieldCopy.findIndex(e => e.animal === group);
+            if (ind < 0) {
+                break;
+            }
+            fieldCopy.splice(ind, 1);
+        }
+        setField(fieldCopy);
+        localStorage.setItem('animals', JSON.stringify(fieldCopy));
+    }
+
 
     useEffect(() => {
         // klausiam ar ka nors turi is gyvuliu
@@ -77,6 +91,11 @@ function App() {
                     <option value={2}>Field Two</option>
                     <option value={3}>Field Three</option>
                 </select>
+            </div>
+            <div className='buttons-holder'>
+                <button onClick={() => groupGoHome('cow')}>Home cow</button>
+                <button onClick={() => groupGoHome('sheep')}>Home sheep</button>
+                <button onClick={() => groupGoHome('horse')}>Home horse</button>
             </div>
         </>
     );
