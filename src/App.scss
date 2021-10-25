@@ -111,7 +111,7 @@ button {
     align-items: flex-start;
 
     .field_part {
-        background-color: aquamarine;
+        background-color: rgb(3, 124, 44);
         margin: 20px;
         display: flex;
         justify-content: flex-start;
@@ -126,7 +126,7 @@ button {
             height: 140px;
             width: 140px;
             border-radius: 50%;
-            border: 4px dotted purple;
+            border: 4px solid rgb(22, 45, 245);
             margin: 10px;
             display: flex;
             justify-content: center;
@@ -135,7 +135,7 @@ button {
         .sheep {
             height: 140px;
             width: 140px;
-            border: 4px dotted rgb(47, 75, 230);
+            border: 4px solid rgb(198, 248, 14);
             margin: 10px;
             display: flex;
             justify-content: center;
@@ -143,16 +143,12 @@ button {
         }
         .horse {
             height: 100px;
-            width: 100px;
-            border: 4px dotted rgb(219, 30, 30);
-            transform: rotate(45deg);
-            margin: 30px;
+            width: 140px;
+            border: 4px solid rgb(219, 30, 30);
+            margin: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            h2, button {
-                transform: rotate(-45deg);
-            }
         }
     }
 }
@@ -161,4 +157,21 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+select {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    height: 38px;
+    width: 120px;
+    line-height: 38px;
+    overflow: hidden;
+    background: rgb(6, 133, 48);
+    border-radius: 3px;
+    box-shadow: 0 15px 30px rgba(black, 0.1);
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 7px;
 }
