@@ -1,9 +1,16 @@
 
-function ZooAnimal({animal}) {
+function ZooAnimal({ animal }) {
 
-    return(
+    return (
         <div className='zoo__list__animal'>
-            <div>{animal.name}</div>
+            <div className='zoo__list__animal__name'>{animal.name}</div>
+            <div className='zoo__list__animal__type'>{animal.type}</div>
+            <div className='zoo__list__animal__stats'>
+                <span>
+                    <i>Born date: </i>{animal.born.slice(0,10)}</span>
+                <span><i>Weight: </i>{animal.weight} kg.</span>
+            </div>
+
         </div>
     );
 }

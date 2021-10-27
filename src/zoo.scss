@@ -1,8 +1,11 @@
 .zoo {
+    background-color: rgb(237, 130, 210);
+    min-width: 100vw;
+    min-height: 100vh;
     &__list {
         display: flex;
-        justify-content: center;
-        justify-items: center;
+        justify-content: space-between;
+        justify-items: flex-start;
         flex-wrap: wrap;
         padding: 10px;
         &__animal {
@@ -11,8 +14,44 @@
             justify-items: center;
             flex-direction: column;
             padding: 5px;
-            border: 3px solid greenyellow;
+            border: 3px solid rgb(241, 240, 242);
             border-radius: 3px;
+            width: 100%;
+            margin: 10px;
+            max-width: 200px;
+            min-width: 140px;
+            box-sizing: border-box;
+            margin: 10px;
+            &__name {
+                color: aliceblue;
+                font-size: 40px;
+                text-align: center;
+                padding: 0 0 20px 0;
+            }
+            &__type {
+                color: rgb(18, 131, 245);
+                font-size: 20px;
+                text-align: center;
+                padding: 0 0 20px 0;
+            }
+            &__stats {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                color: rgb(142, 241, 85);
+                font-size: 16px;
+                text-align: center;
+                padding: 0 0 20px 0;
+                span {
+                    font-weight: bold;
+                    font-size: 20px;
+                    i {
+                        font-size: 18px;
+                        color:aqua;
+                    }
+                }
+            }
         }
     }
 }
