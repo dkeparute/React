@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ZooList from "./Components/ZooList";
 function App() {
-
+    // HOOKAS
     const [animals, setAnimals] = useState([]);
 
     useEffect(() => {

@@ -1,10 +1,11 @@
 import ZooAnimal from "./ZooAnimal";
 
-function ZooList({animals}) {
+function ZooList({ animals }) {
 
-    return(
+    return (
         <div className='zoo__list'>
-{animals.map(animal => <ZooAnimal key={animal.id} animal={animal}></ZooAnimal>)}
+            
+            {animals.map(animal => <ZooAnimal key={animal.id} animal={animal}></ZooAnimal>)}
         </div>
     );
 }
