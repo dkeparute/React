@@ -6,20 +6,22 @@ const cors = require('cors')
 app.use(cors())
 
 app.use(express.urlencoded({
-extended: true
+  extended: true
 }))
 app.use(express.json());
 
 const con = mysql.createConnection({
-    host: "localhost",
-    user: "zoo",
-    password: "zoo"
-  });
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+  host: "localhost",
+  user: "zoo",
+  password: "zoo",
+  // butina prideti duomenu baze
+  database: "zoo"
+});
+
+con.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 
 //   ROUTINGAS NUSAKOMAS KELIAS KAS TURI BUTI JEIGU NARSYKLE PATEKS
@@ -28,8 +30,28 @@ app.get('/', (req, res) => {
 })
 
 app.get('/labas/:id', (req, res) => {
-    res.send(`labas ${req.params.id} tau`)
+  res.send(`labas ${req.params.id} tau`)
 })
+
+app.get('/test', (req, res) => {
+  res.send(JSON.stringify({ test: 'OK' }))
+})
+
+// visi gyvunai
+app.get('/animals', (req, res) => {
+  const sql = `
+  SELECT *
+  FROM animals
+  `;
+  // uzklausa atiduodama i con
+  con.query(sql, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
