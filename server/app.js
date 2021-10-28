@@ -59,6 +59,28 @@ app.get('/animals', (req, res) => {
   })
 })
 
+// PRIDEDAMAS GYVUNAS
+
+app.post('/animals', (req, res) => {
+  const sql = `
+  INSERT INTO animals
+  (name, type, weight, born)
+  VALUES (?, ?, ?, ?)
+  `;
+  // uzklausa atiduodama i conectiona ir uzklausiame jog pateiktu rezultatus, o jeigu randa klaida tegu meta tiesiai i veida 
+  con.query(sql, [
+    req.body.name,
+    req.body.type,
+    req.body.weight,
+    req.body.born
+  ], (err, results) => {
+    if(err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
