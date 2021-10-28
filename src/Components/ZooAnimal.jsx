@@ -10,6 +10,7 @@ function ZooAnimal({ animal }) {
                     <i>Born date: </i>{animal.born.slice(0,10)}</span>
                 <span><i>Weight: </i>{animal.weight} kg.</span>
             </div>
+            <button>Edit</button>
 
         </div>
     );

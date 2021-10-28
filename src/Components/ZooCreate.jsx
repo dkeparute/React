@@ -20,6 +20,7 @@ function ZooCreate({create}) {
 
     const handleCreate = () => {
         create(inputs);
+        // tam kad nusiresetintu kai ivedam kazka naujo
         setInputs({
             name: '',
             type: '',
