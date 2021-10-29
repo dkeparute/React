@@ -3,7 +3,7 @@ import ZooModal from "./ZooModal";
 function ZooAnimal({ animal, modal }) {
 
 const showEdit = () => {
-    modal()
+    modal(animal)
 }
 
     return (

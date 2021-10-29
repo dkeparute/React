@@ -45,8 +45,7 @@ function ZooCreate({create}) {
             <div className="zoo__form__input">
             <button onClick={handleCreate}>Add</button>
             </div>
-    
-        </div>
+            </div>
     )
 }
 

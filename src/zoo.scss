@@ -3,7 +3,7 @@
 }
 
 .zoo {
-    background-color: rgb(232, 143, 217);
+    background-color: steelblue;
     min-width: 100vw;
     min-height: 100vh;
     position: relative;
@@ -24,15 +24,16 @@
             width: 100%;
             max-width: 200px;
             min-width: 140px;
+            box-sizing: border-box;
             margin: 10px;
             &__name {
-                color: black;
+                color: ghostwhite;
                 font-size: 30px;
                 text-align: center;
                 padding: 0 0 0 0;
             }
             &__type {
-                color: white;
+                color: yellow;
                 font-size: 20px;
                 text-align: center;
                 padding: 0 0 20px 0;
@@ -42,7 +43,7 @@
                 justify-content: flex-start;
                 align-items: flex-start;
                 flex-direction: column;
-                color: white;
+                color: paleturquoise;
                 font-size: 16px;
                 text-align: center;
                 padding: 0 0 20px 0;
@@ -50,9 +51,8 @@
                 span {
                     i {
                         font-size: 14px;
-                        color: black;
-                        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-                            sans-serif;
+                        color: lightcoral;
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                     }
                 }
             }
@@ -62,7 +62,8 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        background: rgb(162, 204, 248);
+        background: paleturquoise;
+        box-sizing: border-box;
         flex-wrap: wrap;
         padding-bottom: 5px;
         h2 {
@@ -70,9 +71,8 @@
             margin-bottom: 0;
             text-align: center;
             font-size: 22px;
-            color: black;
-            text-transform: uppercase;
-            font-weight: bold;
+            color: lightcoral;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
         &__input {
             width: 50vw;
@@ -86,31 +86,29 @@
                 padding: 0 0 0 20px;
                 color: white;
                 min-width: 70px;
-                margin-left: 10px;
             }
             input {
                 border: none;
                 outline: none;
             }
             button {
-                margin-left: 30px;
+                margin-left: 15px;
             }
         }
     }
     &__modal {
         position: absolute;
-        // left: 10vw;
-        // // width: 90%;
-        // top: 0;
-        // background-color: paleturquoise;
-        // border: 3px solid white;
-        // box-shadow: 2px 2px 2px gray;
-        left: 25vw;
-        width: 50vw;
-        height: 300px;
+        left: 10vw;
+        // width: 90%;
         top: 0;
         background-color: paleturquoise;
         border: 3px solid white;
         box-shadow: 2px 2px 2px gray;
+        .zoo__form__input {
+            width: 40vw;
+        }
+        .zoo__form {
+            width: 80vw;
+        }
     }
 }
