@@ -3,7 +3,7 @@
 }
 
 .zoo {
-    background-color: steelblue;
+    background-color: rgb(232, 143, 217);
     min-width: 100vw;
     min-height: 100vh;
     position: relative;
@@ -24,16 +24,15 @@
             width: 100%;
             max-width: 200px;
             min-width: 140px;
-            box-sizing: border-box;
             margin: 10px;
             &__name {
-                color: ghostwhite;
+                color: black;
                 font-size: 30px;
                 text-align: center;
                 padding: 0 0 0 0;
             }
             &__type {
-                color: yellow;
+                color: white;
                 font-size: 20px;
                 text-align: center;
                 padding: 0 0 20px 0;
@@ -43,7 +42,7 @@
                 justify-content: flex-start;
                 align-items: flex-start;
                 flex-direction: column;
-                color: paleturquoise;
+                color: white;
                 font-size: 16px;
                 text-align: center;
                 padding: 0 0 20px 0;
@@ -51,7 +50,7 @@
                 span {
                     i {
                         font-size: 14px;
-                        color: lightcoral;
+                        color: black;
                         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
                             sans-serif;
                     }
@@ -63,8 +62,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        background: paleturquoise;
-        box-sizing: border-box;
+        background: rgb(162, 204, 248);
         flex-wrap: wrap;
         padding-bottom: 5px;
         h2 {
@@ -72,8 +70,9 @@
             margin-bottom: 0;
             text-align: center;
             font-size: 22px;
-            color: lightcoral;
-            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
         }
         &__input {
             width: 50vw;
@@ -87,29 +86,31 @@
                 padding: 0 0 0 20px;
                 color: white;
                 min-width: 70px;
+                margin-left: 10px;
             }
             input {
                 border: none;
                 outline: none;
             }
             button {
-                margin-left: 15px;
+                margin-left: 30px;
             }
         }
     }
     &__modal {
         position: absolute;
-        left: 10vw;
-        // width: 90%;
+        // left: 10vw;
+        // // width: 90%;
+        // top: 0;
+        // background-color: paleturquoise;
+        // border: 3px solid white;
+        // box-shadow: 2px 2px 2px gray;
+        left: 25vw;
+        width: 50vw;
+        height: 300px;
         top: 0;
         background-color: paleturquoise;
         border: 3px solid white;
         box-shadow: 2px 2px 2px gray;
-        .zoo__form__input {
-            width: 40vw;
-        }
-        .zoo__form {
-            width: 80vw;
-        }
     }
 }

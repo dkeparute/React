@@ -1,8 +1,7 @@
+function ZooModal({showModal}) {
 
-// LENTELE ANT TURINIO
-function ZooModal() {
     return (
-        <div className='zoo__modal'></div>
+        <div className='zoo__modal' style={{ display: showModal ? 'flex' : 'none' }}>gbnfgdnb</div>
     );
 }
 export default ZooModal;

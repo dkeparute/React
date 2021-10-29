@@ -1,5 +1,10 @@
+import ZooModal from "./ZooModal";
 
-function ZooAnimal({ animal }) {
+function ZooAnimal({ animal, modal }) {
+
+const showEdit = () => {
+    modal()
+}
 
     return (
         <div className='zoo__list__animal'>
@@ -10,7 +15,7 @@ function ZooAnimal({ animal }) {
                     <i>Born date: </i>{animal.born.slice(0,10)}</span>
                 <span><i>Weight: </i>{animal.weight} kg.</span>
             </div>
-            <button>Edit</button>
+            <button onClick={showEdit}>Edit</button>
 
         </div>
     );

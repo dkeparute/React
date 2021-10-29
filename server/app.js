@@ -59,25 +59,25 @@ app.get('/animals', (req, res) => {
   })
 })
 
-// PRIDEDAMAS GYVUNAS
-
+// Prideti gyvuna
+// INSERT INTO table_name (column1, column2, column3, ...)
+// VALUES (value1, value2, value3, ...);
 app.post('/animals', (req, res) => {
   const sql = `
-  INSERT INTO animals
-  (name, type, weight, born)
-  VALUES (?, ?, ?, ?)
+      INSERT INTO animals
+      (name, type, weight, born)
+      VALUES (?, ?, ?, ?)
   `;
-  // uzklausa atiduodama i conectiona ir uzklausiame jog pateiktu rezultatus, o jeigu randa klaida tegu meta tiesiai i veida 
   con.query(sql, [
-    req.body.name,
-    req.body.type,
-    req.body.weight,
-    req.body.born
+      req.body.name,
+      req.body.type,
+      req.body.weight,
+      req.body.born
   ], (err, results) => {
-    if(err) {
-      throw err;
-    }
-    res.send(results);
+      if (err) {
+          throw err;
+      }
+      res.send(results);
   })
 })
 
