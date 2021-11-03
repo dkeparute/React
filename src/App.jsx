@@ -148,6 +148,10 @@ function App() {
             })
     }
 
+    const reset =  () => {
+        setLastUpdate(Date.now());
+          
+    }
 
     const modal = (animal) => {
         setShowModal(true);
@@ -160,7 +164,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooNav types={types} filter={setFilter} />
+            <ZooNav types={types} filter={setFilter} reset={reset}/>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
