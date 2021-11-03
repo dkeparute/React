@@ -78,6 +78,7 @@ import { useEffect, useState } from "react";
 import ZooCreate from "./Components/ZooCreate";
 import ZooList from "./Components/ZooList";
 import ZooModal from "./Components/ZooModal";
+import ZooNav from "./Components/ZooNav";
 function App() {
 
 
@@ -110,7 +111,7 @@ function App() {
 
     const edit = (animal, id) => {
         setShowModal(false);
-        axios.put('http://localhost:3003/animals/'+id, animal)
+        axios.put('http://localhost:3003/animals/' + id, animal)
             .then(res => {
                 console.log(res.data);
                 setLastUpdate(Date.now());
@@ -119,7 +120,7 @@ function App() {
 
     const remove = (id) => {
         setShowModal(false);
-        axios.delete('http://localhost:3003/animals/'+id)
+        axios.delete('http://localhost:3003/animals/' + id)
             .then(res => {
                 console.log(res.data);
                 setLastUpdate(Date.now());
@@ -138,6 +139,7 @@ function App() {
 
     return (
         <div className="zoo">
+            <ZooNav />
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
