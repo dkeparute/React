@@ -152,6 +152,23 @@ app.get('/animals-filter/:type', (req, res) => {
   })
 })
 
+// paieska pagal varda
+// SELECT column1, column2, ...
+// FROM table_name
+// WHERE columnN LIKE pattern;
+app.get('/animals-name', (req, res) => {
+  const sql = `
+      SELECT *
+      FROM animals
+      WHERE name LIKE ?
+  `;
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
 
 
 app.listen(port, () => {
