@@ -1,4 +1,4 @@
-function ZooNav({ types }) {
+function ZooNav({ types, filter }) {
 
     return (
         <div className='zoo__nav'>

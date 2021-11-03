@@ -160,7 +160,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooNav types={types} />
+            <ZooNav types={types} filter={setFilter} />
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
