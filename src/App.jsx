@@ -91,7 +91,7 @@ function App() {
         weight: '',
         born: ''
     })
-
+    const [types, setTypes] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:3003/animals')
@@ -100,6 +100,15 @@ function App() {
                 console.log(res.data);
             })
     }, [lastUpdate])
+
+    useEffect(() => {
+        axios.get('http://localhost:3003/animals-type')
+            .then(res => {
+                setTypes(res.data);
+                console.log(res.data);
+            })
+    }, [lastUpdate])
+
 
     const create = animal => {
         axios.post('http://localhost:3003/animals', animal)
@@ -139,7 +148,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooNav />
+            <ZooNav types={types} />
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
