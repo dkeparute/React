@@ -92,6 +92,7 @@ function App() {
         born: ''
     })
     const [types, setTypes] = useState([]);
+    const [filter, setFilter] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:3003/animals')
@@ -100,6 +101,17 @@ function App() {
                 console.log(res.data);
             })
     }, [lastUpdate])
+
+    useEffect(() => {
+        if (filter) {
+            axios.get('http://localhost:3003/animals-filter/' + filter)
+                .then(res => {
+                    setAnimals(res.data);
+                    console.log(res.data);
+                })
+        }
+
+    }, [filter])
 
     useEffect(() => {
         axios.get('http://localhost:3003/animals-type')

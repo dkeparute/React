@@ -136,6 +136,23 @@ app.get('/animals-type', (req, res) => {
   })
 })
 
+// Rodo tik tam tikro tipo gyvunus:
+
+app.get('/animals-filter/:type', (req, res) => {
+  const sql = `
+  SELECT *
+  FROM animals
+  WHERE TYPE =?
+  `;
+  con.query(sql, [req.params.type], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
