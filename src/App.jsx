@@ -79,6 +79,7 @@ import ZooCreate from "./Components/ZooCreate";
 import ZooList from "./Components/ZooList";
 import ZooModal from "./Components/ZooModal";
 import ZooNav from "./Components/ZooNav";
+import animalSort from "./Common/animalSort";
 function App() {
 
 
@@ -99,7 +100,7 @@ function App() {
     
     useEffect(() => {
         if (sortBy) {
-        
+        setAnimals(animalSort(animals, sortBy))
         }
     }, [sortBy])
 

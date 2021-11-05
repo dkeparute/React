@@ -35,8 +35,8 @@ function ZooNav({ types, filter, reset, search, sort }) {
                     <option value="">Select item</option>
                     <option value="">By name AZ</option>
                     <option value="">By name ZA</option>
-                    <option value="">By weight asc</option>
-                    <option value="">By weight desc</option>
+                    <option value="name_asc">By weight asc</option>
+                    <option value="name_desc">By weight desc</option>
 
                 </select>
             </div>
