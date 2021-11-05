@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ZooNav({ types, filter, reset, search }) {
+function ZooNav({ types, filter, reset, search, sort }) {
 
     const [filterValue, setFilterValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
@@ -24,6 +24,7 @@ function ZooNav({ types, filter, reset, search }) {
 
     const selectSort = e => {
         setSortValue(e.target.value);
+        sort(e.target.value);
     }
 
     return (
