@@ -97,10 +97,17 @@ function App() {
     const [searchBy, setSearchBy] = useState('');
     const [sortBy, setSortBy] = useState('');
 
-    const sort = (by) => {
-        setAnimals(animalSort(animals, by));
-        setSortBy(by);
-    }
+    // const sort = (by) => {
+    //     setAnimals(animalSort(animals, by));
+    //     setSortBy(by);
+    // }
+
+    useEffect(() => {
+        if (sortBy) {
+            setAnimals(animalSort(animals, sortBy));
+        }
+    }, [sortBy])
+
 
     useEffect(() => {
         if (filterBy) {
@@ -182,7 +189,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
+            <ZooNav sort={setSortBy} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
