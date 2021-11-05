@@ -97,11 +97,6 @@ function App() {
     const [searchBy, setSearchBy] = useState('');
     const [sortBy, setSortBy] = useState('');
 
-    // const sort = (by) => {
-    //     setAnimals(animalSort(animals, by));
-    //     setSortBy(by);
-    // }
-
     useEffect(() => {
         if (sortBy) {
             setAnimals(animalSort(animals, sortBy));
