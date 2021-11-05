@@ -123,11 +123,11 @@ function App() {
         }
     }, [searchBy])
 
-
+    // keiciam
     useEffect(() => {
         axios.get('http://localhost:3003/animals')
             .then(res => {
-                setAnimals(res.data);
+                setAnimals(animalSort((res.data), sortBy))
                 console.log(res.data);
             })
     }, [lastUpdate])
