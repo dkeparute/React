@@ -6,8 +6,6 @@ function ZooNav({ types, filter, reset, search, sort }) {
     const [searchValue, setSearchValue] = useState('');
     const [sortValue, setSortValue] = useState('');
 
-
-
     const selectFilter = e => {
         setFilterValue(e.target.value);
         filter(e.target.value)

@@ -95,10 +95,11 @@ function App() {
     const [types, setTypes] = useState([]);
     const [filterBy, setFilterBy] = useState('');
     const [searchBy, setSearchBy] = useState('');
-    // const [sortBy, setSortBy] = useState('');
+    const [sortBy, setSortBy] = useState('');
 
     const sort = (by) => {
-        return animalSort(animals, by)
+        setAnimals(animalSort(animals, by));
+        setSortBy(by);
     }
 
     useEffect(() => {
