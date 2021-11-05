@@ -33,10 +33,10 @@ function ZooNav({ types, filter, reset, search, sort }) {
                 <span>Item sort </span>
                 <select onChange={selectSort} value={sortValue}>
                     <option value="">Select item</option>
-                    <option value="">By name AZ</option>
-                    <option value="">By name ZA</option>
-                    <option value="name_asc">By weight asc</option>
-                    <option value="name_desc">By weight desc</option>
+                    <option value="name_asc">By name AZ</option>
+                    <option value="name_desc">By name ZA</option>
+                    <option value="weight_asc">By weight asc</option>
+                    <option value="weight_desc">By weight desc</option>
 
                 </select>
             </div>
