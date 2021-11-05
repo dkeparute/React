@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-function ZooNav({ types, filter, reset, search}) {
+function ZooNav({ types, filter, reset, search }) {
 
     const [filterValue, setFilterValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
+    const [sortValue, setSortValue] = useState('');
 
     const selectFilter = e => {
         setFilterValue(e.target.value);
@@ -21,8 +22,23 @@ function ZooNav({ types, filter, reset, search}) {
         setFilterValue('');
     }
 
+    const selectSort = e => {
+        setSortValue(e.target.value);
+    }
+
     return (
         <div className="zoo__nav">
+            <div className="zoo__nav__filter">
+                <span>Item sort </span>
+                <select onChange={selectSort} value={sortValue}>
+                    <option value="">Select item</option>
+                    <option value="">By name AZ</option>
+                    <option value="">By name ZA</option>
+                    <option value="">By weight asc</option>
+                    <option value="">By weight desc</option>
+
+                </select>
+            </div>
             <div className="zoo__nav__filter">
                 <span>Animal Filter by type</span>
                 <select onChange={selectFilter} value={filterValue}>
