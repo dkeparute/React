@@ -103,6 +103,8 @@ function App() {
         average: 0
     });
 
+    const [GroupStats, setGroupStats] = useState([]);
+
     useEffect(() => {
         axios.get('http://localhost:3003/stats')
             .then(res => {
@@ -114,6 +116,7 @@ function App() {
     useEffect(() => {
         axios.get('http://localhost:3003/group-stats')
             .then(res => {
+                setGroupStats(res.data);
                 console.log(res);
             })
     }, [lastUpdate])
@@ -215,7 +218,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooStat stats={stats} />
+            <ZooStat stats={stats} GroupStats={GroupStats}/>
             <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
