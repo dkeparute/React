@@ -80,6 +80,7 @@ import ZooList from "./Components/ZooList";
 import ZooModal from "./Components/ZooModal";
 import ZooNav from "./Components/ZooNav";
 import animalSort from "./Common/animalSort";
+import ZooStat from "./Components/ZooStat";
 function App() {
 
 
@@ -179,7 +180,7 @@ function App() {
 
     const reset = () => {
         setLastUpdate(Date.now());
-        
+
     }
 
 
@@ -194,6 +195,7 @@ function App() {
 
     return (
         <div className="zoo">
+            <ZooStat />
             <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
