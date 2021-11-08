@@ -74,7 +74,7 @@
 // export default App;
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ZooCreate from "./Components/ZooCreate";
 import ZooList from "./Components/ZooList";
 import ZooModal from "./Components/ZooModal";
@@ -95,20 +95,29 @@ function App() {
     const [types, setTypes] = useState([]);
     const [filterBy, setFilterBy] = useState('');
     const [searchBy, setSearchBy] = useState('');
-    const [sortBy, setSortBy] = useState('');
+    // const [sortBy, setSortBy] = useState('');
 
-    useEffect(() => {
-        if (sortBy) {
-            setAnimals(animalSort(animals, sortBy));
-        }
-    }, [sortBy])
+
+    const sortBy = useRef('');
+
+    // useEffect(() => {
+    //     if (sortBy) {
+    //         setAnimals(animalSort(animals, sortBy));
+    //     }
+    // }, [sortBy])
+
+
+    const sort = (by) => {
+        setAnimals(animalSort(animals, by));
+        sortBy.current = by;
+    }
 
 
     useEffect(() => {
         if (filterBy) {
             axios.get('http://localhost:3003/animals-filter/' + filterBy)
                 .then(res => {
-                    setAnimals(res.data);
+                    setAnimals(animalSort((res.data), sortBy.current))
                     console.log(res.data);
                 })
         }
@@ -119,7 +128,7 @@ function App() {
         if (searchBy) {
             axios.get('http://localhost:3003/animals-name/?s=' + searchBy)
                 .then(res => {
-                    setAnimals(res.data);
+                    setAnimals(animalSort((res.data), sortBy.current))
                     console.log(res.data);
                 })
         }
@@ -129,7 +138,7 @@ function App() {
     useEffect(() => {
         axios.get('http://localhost:3003/animals')
             .then(res => {
-                setAnimals(animalSort((res.data), sortBy))
+                setAnimals(animalSort((res.data), sortBy.current))
                 console.log(res.data);
             })
     }, [lastUpdate])
@@ -170,6 +179,7 @@ function App() {
 
     const reset = () => {
         setLastUpdate(Date.now());
+        
     }
 
 
@@ -184,7 +194,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooNav sort={setSortBy} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
+            <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
             <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
