@@ -106,7 +106,17 @@ function App() {
 
     const [GroupStats, setGroupStats] = useState([]);
 
-    const [msg, setMsg] = useState('');
+    const msg = useRef('');
+    const [showMsg, setShowMsg] = useState(false);
+
+    const addMessage = (text) => {
+      msg.current = text;
+        setShowMsg(true)
+    }
+
+    const clearMessage = (msg) => {
+        setShowMsg(false)
+    }
 
     useEffect(() => {
         axios.get('http://localhost:3003/stats')
@@ -181,7 +191,7 @@ function App() {
     const create = animal => {
         axios.post('http://localhost:3003/animals', animal)
             .then(res => {
-                console.log(res.data);
+                addMessage('Animal was added.')
                 setLastUpdate(Date.now());
             })
     }
@@ -221,7 +231,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooMessage msg={msg} />
+            <ZooMessage msg={msg.current} showMsg={showMsg}/>
             <ZooStat stats={stats} GroupStats={GroupStats} />
             <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>

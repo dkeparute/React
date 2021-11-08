@@ -1,6 +1,6 @@
-function ZooMessage({msg}) {
+function ZooMessage({msg, showMsg}) {
     return (
-        <div className='message' style = {{height: msg? '100px': '0px' }}>
+        <div className='message' style = {{height: showMsg? '100px': '0px' }}>
             <span>{msg}</span>
         </div>
     );
