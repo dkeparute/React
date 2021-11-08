@@ -190,7 +190,7 @@ app.get('/group-stats', (req, res) => {
   select count(id) as count, type
   from animals
   group by type
-  order by type desc
+  order by count(id) desc, type
   `;
   con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
     if (err) {
