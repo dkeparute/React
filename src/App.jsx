@@ -81,6 +81,7 @@ import ZooModal from "./Components/ZooModal";
 import ZooNav from "./Components/ZooNav";
 import animalSort from "./Common/animalSort";
 import ZooStat from "./Components/ZooStat";
+import ZooMessage from "./Components/ZooMessage";
 function App() {
 
 
@@ -104,6 +105,8 @@ function App() {
     });
 
     const [GroupStats, setGroupStats] = useState([]);
+
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:3003/stats')
@@ -218,7 +221,8 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooStat stats={stats} GroupStats={GroupStats}/>
+            <ZooMessage msg={msg} />
+            <ZooStat stats={stats} GroupStats={GroupStats} />
             <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>
