@@ -163,23 +163,40 @@ app.get('/animals-name', (req, res) => {
       WHERE name LIKE ?
   `;
   con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
+    if (err) {
+      throw err;
+    }
+    res.send(results);
   })
 })
 
+// statistika
 app.get('/stats', (req, res) => {
   const sql = `
       select count(id) as count, sum(weight) as weight, avg(weight) as average
       FROM animals
   `;
   con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+// grupine statistika
+
+app.get('/group-stats', (req, res) => {
+  const sql = `
+  select count(id) as count, type
+  from animals
+  group by type
+  order by type desc
+  `;
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
   })
 })
 

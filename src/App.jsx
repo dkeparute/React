@@ -111,6 +111,13 @@ function App() {
             })
     }, [lastUpdate])
 
+    useEffect(() => {
+        axios.get('http://localhost:3003/group-stats')
+            .then(res => {
+                console.log(res);
+            })
+    }, [lastUpdate])
+
 
     const sortBy = useRef('');
 
