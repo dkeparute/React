@@ -97,6 +97,19 @@ function App() {
     const [filterBy, setFilterBy] = useState('');
     const [searchBy, setSearchBy] = useState('');
     // const [sortBy, setSortBy] = useState('');
+    const [stats, setStats] = useState({
+        count: 0,
+        weight: 0,
+        average: 0
+    });
+
+    useEffect(() => {
+        axios.get('http://localhost:3003/stats')
+            .then(res => {
+                setStats(res.data[0])
+                console.log(res.data);
+            })
+    }, [lastUpdate])
 
 
     const sortBy = useRef('');
@@ -195,7 +208,7 @@ function App() {
 
     return (
         <div className="zoo">
-            <ZooStat />
+            <ZooStat stats={stats} />
             <ZooNav sort={sort} types={types} search={setSearchBy} filter={setFilterBy} reset={reset}></ZooNav>
             <ZooCreate create={create}></ZooCreate>
             <ZooList animals={animals} modal={modal}></ZooList>

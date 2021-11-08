@@ -170,6 +170,18 @@ app.get('/animals-name', (req, res) => {
   })
 })
 
+app.get('/stats', (req, res) => {
+  const sql = `
+      select count(id) as count, sum(weight) as weight, avg(weight) as average
+      FROM animals
+  `;
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

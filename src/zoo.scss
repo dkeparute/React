@@ -129,6 +129,13 @@
         }
     }
     .stats {
+        padding: 20px;
         background-color: paleturquoise;
+        span {
+            padding: 0 10px;
+            font-size: 22px;
+            color: lightcoral;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          }
     }
 }
