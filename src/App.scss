@@ -166,36 +166,66 @@ input {
   justify-content: space-between;
   align-items: center;
   li {
-      list-style: none;
-      a {
-          color: rgb(233, 207, 13);
-          padding: 15px;
-          text-decoration: none;
-          &:hover {
-              color: rgb(250, 34, 117);
-              transition: all 0.3s;
-          }
+    list-style: none;
+    a {
+      color: rgb(233, 207, 13);
+      padding: 15px;
+      text-decoration: none;
+      &:hover {
+        color: rgb(250, 34, 117);
+        transition: all 0.3s;
       }
+    }
   }
 }
 .antarctica {
   h2 {
-      color: rgb(240, 21, 232);
+    color: rgb(240, 21, 232);
   }
   .antarctica-menu {
-      padding: 20px;
-      background-color: darkturquoise;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      color: darkcyan;
-      li {
-          list-style: none;
-          a {
-              color: white;
-              padding: 0 15px;
-              text-decoration: none;
-          }
+    padding: 20px;
+    background-color: darkturquoise;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: darkcyan;
+    li {
+      list-style: none;
+      a {
+        color: white;
+        padding: 0 15px;
+        text-decoration: none;
       }
+    }
+  }
+}
+
+.context {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: aqua;
+  border: 3px solid #cf4d99;
+  h1 {
+    color: #cf4d99;
+    text-transform: uppercase;
+  }
+  .granpa {
+    margin: 50px;
+    border: 3px solid #cf4d99;
+    .pa {
+      margin: 50px;
+      border: 3px solid #cf4d99;
+      .child {
+        margin: 50px;
+        border: 3px solid #cf4d99;
+      }
+    }
+  }
+  h2 {
+    color: #181717;
+    text-transform: uppercase;
   }
 }
