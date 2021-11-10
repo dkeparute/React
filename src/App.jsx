@@ -16,20 +16,24 @@ function App() {
             <ul className='hello-meniu'>
                 <li>
                     <Link to='/'>Basic</Link>
-                    <Link to='/africa'>Africa</Link>
-                    <Link to='/australia'>Australia</Link>
+                    <Link to='/africa/77'>Africa </Link>
+                    <Link to='/africa/14'>Africa 1</Link>
+                    <Link to='/africa/17'>Africa 2</Link>
+                    <Link to='/australia/15/kangaroo'>Australia</Link>
+                    <Link to='/australia/30/duck'>Australia 1</Link>
                     <Link to='/antarctica'>Antarctica</Link>
                 </li>
             </ul>
 
             <Routes>
 
-            <Route path='/' element={<RouterBasic/>} ></Route>
-            <Route path='/africa' element={<RouterAfrica/>} ></Route>
-            <Route path='/australia' element={<RouterAustralia/>} ></Route>
-                <Route path='/antarctica' element={<RouterAntarctica/>} ></Route>
+                <Route path='' element={<RouterBasic />} ></Route>
+                <Route path='/africa/:times' element={<RouterAfrica />} ></Route>
+                <Route path='/australia/:times/:from' element={<RouterAustralia />} ></Route>
+                <Route path='/antarctica' element={<RouterAntarctica />} ></Route>
+
             </Routes>
-            
+
         </Router>
     );
 }
