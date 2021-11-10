@@ -1,15 +1,11 @@
 import { createContext, useState } from "react";
 import GranPa from "./Components/Context/GranPa";
+export const Msg = createContext('');
 
 function App() {
 
     const [message, setMessage] = useState('No message');
     const [messageToChild, setMessageToChild] = useState('');
-
-    // tai yra komponentas del to is didziosios raides, tai NERA HOKAS
-    // cia sukuriam kontektsa kad butu galima panaudoti
-    const Context = createContext('');
-
 
     const messageControl = event => {
         setMessage(event.target.value);
@@ -25,9 +21,9 @@ function App() {
             <input type="text" onChange={messageControl} value={message}></input>
             <button onClick={sender}>App message</button>
             {/* konteksto provideris turi value tai jo propras */}
-            <Context.Provider value={messageToChild}>
-            <GranPa />
-            </Context.Provider>
+            <Msg.Provider value={messageToChild}>
+                <GranPa />
+            </Msg.Provider>
         </div>
     );
 
