@@ -6,7 +6,7 @@ function RouterPolarBear() {
 
     return (
         <div>
-            <h2>Polar Bear</h2>
+            <h2>I am Polar Bear</h2>
         </div>
     );
 }

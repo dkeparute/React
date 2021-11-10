@@ -6,7 +6,7 @@ function RouterPenguin() {
 
     return (
         <div>
-            <h2>Penguin</h2>
+            <h2>I am Penguin</h2>
         </div>
     );
 }

@@ -6,7 +6,7 @@ function RouterSeal() {
 
     return (
         <div>
-            <h2>Seal</h2>
+            <h2>I am Seal</h2>
         </div>
     );
 }
