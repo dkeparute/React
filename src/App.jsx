@@ -4,6 +4,7 @@ import RouterAfrica from "./Components/RouterAfrica";
 import RouterAntarctica from "./Components/RouterAntarctica";
 import RouterAustralia from "./Components/RouterAustralia";
 import RouterBasic from "./Components/RouterBasic";
+import RouterNotFound from "./Components/RouterNotFound";
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
                 <Route path='/africa/:times' element={<RouterAfrica />} ></Route>
                 <Route path='/australia/:times/:from' element={<RouterAustralia />} ></Route>
                 <Route path='/antarctica' element={<RouterAntarctica />} ></Route>
-                <Route path='*' element={<NotFound />} ></Route>
+                <Route path='*' element={<RouterNotFound/>} ></Route>
 
             </Routes>
 
