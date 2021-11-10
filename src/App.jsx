@@ -31,6 +31,7 @@ function App() {
                 <Route path='/africa/:times' element={<RouterAfrica />} ></Route>
                 <Route path='/australia/:times/:from' element={<RouterAustralia />} ></Route>
                 <Route path='/antarctica' element={<RouterAntarctica />} ></Route>
+                <Route path='*' element={<NotFound />} ></Route>
 
             </Routes>
 
