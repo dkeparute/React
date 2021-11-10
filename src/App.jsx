@@ -24,21 +24,20 @@ function App() {
         setMessageToChild1(message);
     }
 
-    
+
     return (
-        <div className='context'>
-            <h1>App</h1>
+        <div className="context">
+            <h1>APP</h1>
             <input type="text" onChange={messageControl} value={message}></input>
             <input type="text" onChange={messageControl1} value={message1}></input>
-            <button onClick={sender}>App message</button>
-            {/* konteksto provideris turi value tai jo propras */}
+            <button onClick={sender}>APP message</button>
             <Msg.Provider value={messageToChild}>
-                <GranPa />
-            </Msg.Provider>
-            <Msg1.Provider value={messageToChild1}>
-                <GranPa />
+                <Msg1.Provider value={messageToChild1}>
+                <GranPa/>
             </Msg1.Provider>
-        </div>
+        </Msg.Provider>
+        </div >
+
     );
 
 }
