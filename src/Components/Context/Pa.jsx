@@ -1,12 +1,12 @@
 import Child from "./Child";
 
-function Pa({messageToChild}) {
+function Pa() {
 
 
     return (
       <div className='pa'>
           <h1>Pa</h1>
-          <Child messageToChild={messageToChild} />
+          <Child />
       </div>
     );
 
