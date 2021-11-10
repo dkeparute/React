@@ -159,27 +159,43 @@ input {
   margin-left: 15px;
 }
 // ROUTERIS
-h1 {
-  display: flex;
-  justify-content: center;
-  color: #cf4d99;
-}
-.hello-meniu {
-  display: flex;
-  justify-content: center;
+.hello-menu {
   padding: 20px;
-  background-color: antiquewhite;
-  
+  background-color: darkolivegreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   li {
-    list-style: none;
-    a {
-      color: lightpink;
-      text-decoration: none;
-      padding: 15px;
-      &:hover {
-        color: #cf4d99;
-        transition: all 0.3s;
+      list-style: none;
+      a {
+          color: greenyellow;
+          padding: 15px;
+          text-decoration: none;
+          &:hover {
+              color: rgb(41, 253, 13);
+              transition: all 0.3s;
+          }
       }
-    }
+  }
+}
+.antarctica {
+  h2 {
+      color: darkcyan;
+  }
+  .antarctica-menu {
+      padding: 20px;
+      background-color: darkturquoise;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: darkcyan;
+      li {
+          list-style: none;
+          a {
+              color: white;
+              padding: 0 15px;
+              text-decoration: none;
+          }
+      }
   }
 }
