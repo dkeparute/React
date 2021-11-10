@@ -27,12 +27,13 @@ function App() {
             </ul>
 
             <Routes>
-
-                <Route path='' element={<RouterBasic />} ></Route>
+                {/* index */}
+                <Route index element={<RouterBasic />} ></Route>
                 <Route path='/africa/:times' element={<RouterAfrica />} ></Route>
                 <Route path='/australia/:times/:from' element={<RouterAustralia />} ></Route>
                 <Route path='/antarctica' element={<RouterAntarctica />} ></Route>
-                <Route path='*' element={<RouterNotFound/>} ></Route>
+                {/* rodo visus kas nepateko i rautus */}
+                <Route path='*' element={<RouterNotFound />} ></Route>
 
             </Routes>
 
