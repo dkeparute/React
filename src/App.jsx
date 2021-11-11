@@ -1,43 +1,29 @@
-import { createContext, useState } from "react";
-import GranPa from "./Components/Context/GranPa";
-export const Msg = createContext('');
-export const Msg1 = createContext('');
+import { useState } from "react";
+
+
 
 function App() {
 
-    const [message, setMessage] = useState('No message');
-    const [message1, setMessage1] = useState('No message1');
-    const [messageToChild, setMessageToChild] = useState('');
-    const [messageToChild1, setMessageToChild1] = useState('');
 
-    const messageControl = event => {
-        setMessage(event.target.value);
+    const [count, setCount] = useState(0);
+
+    const addOne = () => {
+        setCount(count + 1);
     }
 
-    const messageControl1 = event => {
-        setMessage1(event.target.value);
+    const minusOne = () => {
+        setCount(count-1);
     }
-
-
-    const sender = () => {
-        setMessageToChild(message);
-        setMessageToChild1(message);
-    }
-
 
     return (
-        <div className="context">
-            <h1>APP</h1>
-            <input type="text" onChange={messageControl} value={message}></input>
-            <input type="text" onChange={messageControl1} value={message1}></input>
-            <button onClick={sender}>APP message</button>
-            <Msg.Provider value={messageToChild}>
-                <Msg1.Provider value={messageToChild1}>
-                <GranPa/>
-            </Msg1.Provider>
-        </Msg.Provider>
-        </div >
-
+        <div className='reducer'>
+            <h1>Hello, Reducer!</h1>
+            <h1>{count}</h1>
+            <div className='reducer-butons'>
+                <button onClick={addOne}>Add more</button>
+                <button onClick={minusOne}>Less more</button>
+            </div>
+        </div>
     );
 
 }

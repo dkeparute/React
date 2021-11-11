@@ -229,3 +229,18 @@ input {
     text-transform: uppercase;
   }
 }
+
+.reducer {
+  h1{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+  }
+  .reducer-butons {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+  }
+}
