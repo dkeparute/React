@@ -5,7 +5,7 @@ import { dominoReducer } from "../../Reducer/dominoReducer";
 
 //1 komponentas turi buti kuo maziau uzkimstas biznio logika, o reduceris yra ta vieta kur galima rasyti logikos variacijas
 
-function Create() {
+function Create({create}) {
 
     const [plate, dispatchPlate] = useReducer(dominoReducer, {
         left: 0,
@@ -26,6 +26,13 @@ function Create() {
         }
     }
 
+    const handleCreate = () => {
+        create({
+            left: plate.left,
+            right: plate.right
+        });
+    }
+
 
     return (
         <div className='domino_create'>
@@ -37,7 +44,7 @@ function Create() {
                     <input type="text" style={{backgroundColor: plate.leftErr ? 'red' : 'white'}} onChange={(e) => handleInput(e, 'left')} value={plate.left} />
                     <input type="text" style={{backgroundColor: plate.rightErr ? 'red' : 'white'}} onChange={(e) => handleInput(e, 'right')} value={plate.right} />
                 </div>
-                <button>Create</button>
+                <button onClick={handleCreate}>Create</button>
             </div>
         </div>
     );

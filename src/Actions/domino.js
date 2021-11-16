@@ -21,7 +21,7 @@ export function getDominos() {
     }
 }
 
-export function addDoino(domino) {
+export function addDomino(domino) {
     return {
         type: ADD_DOMINO,
         payload: domino

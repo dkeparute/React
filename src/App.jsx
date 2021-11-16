@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { getDominos } from "./Actions/domino";
+import { addDomino, getDominos } from "./Actions/domino";
 import Create from "./Components/Domino/Create";
 import { dominosReducer } from "./Reducer/dominoReducer";
 
@@ -13,10 +13,14 @@ function App() {
         dispachDominos(getDominos());
 
     }, [])
+
+    const create = (domino) => {
+        dispachDominos(addDomino(domino));
+    }
     return (
         <div className='domino'>
             <h1>Let's play Domino</h1>
-            <Create />
+            <Create create={create} />
         </div>
     );
 }
