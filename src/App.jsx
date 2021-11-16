@@ -1,8 +1,8 @@
 function App() {
 
     return (
-        <div>
-            
+        <div className='domino'>
+            <h1>Let's play Domino</h1>
         </div>
     );
 }
