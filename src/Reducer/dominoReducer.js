@@ -60,13 +60,13 @@ export function dominosReducer(state, action) {
             if (null === dominos) {
                 newState = [];
             } else {
-                newState = dominos;
+                newState = JSON.parse(dominos);
             }
             break;
         case ADD_DOMINO:
-            action.payload.id = dominoGenerator();
+            action.payload.id = dominoGenerator('dominoId');
             newState.push(action.payload);
-            localStorage.setItem('dominos', newState);
+            localStorage.setItem('dominos', JSON.stringify(newState));
 
         default: newState = state;
     }
