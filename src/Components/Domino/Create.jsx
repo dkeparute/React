@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import { add_left } from "../../Actions/domino";
-import { add_right } from "../../Actions/domino";
+import { addLeft } from "../../Actions/domino";
+import { addRight } from "../../Actions/domino";
 import { dominoReducer } from "../../Reducer/dominoReducer";
 
 //1 komponentas turi buti kuo maziau uzkimstas biznio logika, o reduceris yra ta vieta kur galima rasyti logikos variacijas
@@ -19,10 +19,10 @@ function Create() {
     // eventas
     const handleInput = (e, p) => {
         if ('left' === p) {
-            dispatchPlate(add_left(e.target.value));
+            dispatchPlate(addLeft(e.target.value));
         }
         if ('right' === p) {
-            dispatchPlate(add_right(e.target.value));
+            dispatchPlate(addRight(e.target.value));
         }
     }
 

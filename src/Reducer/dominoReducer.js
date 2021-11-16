@@ -50,3 +50,11 @@ export function dominoReducer(state, action) {
     }
     return newState;
 }
+
+export function dominosReducer(state, action){
+    let  newState = { ...state };
+    switch(action.type) {
+
+    }
+    return newState;
+}
