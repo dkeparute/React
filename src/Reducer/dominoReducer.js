@@ -1,10 +1,16 @@
 import dominoGenerator from "../Common/dominoGenerator";
-import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, GET_DOMINOS } from "../Contstants/dominoTypes";
+import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
 
+export const startPos = {
+    left: 0,
+    leftErr: false,
+    right: 0,
+    rightErr: false
+}
 // 5. jis gauna state ir action objekta ir grazina nauja state
 export function dominoReducer(state, action) {
     // kadangi bus keiciama dalis steito, tada tikslinga pasidaryti kopija
-    const newState = { ...state };
+    let newState = { ...state };
     let number = parseInt(action.payload);
     // tada svitchina action tipa
     switch (action.type) {
@@ -46,6 +52,9 @@ export function dominoReducer(state, action) {
             }
             newState.right = number;
             break;
+        case RESET_LEFT_RIGHT:
+            newState = startPos;
+            break;
         // kad nepyktu reaktas
         default:
     }
@@ -67,8 +76,23 @@ export function dominosReducer(state, action) {
             action.payload.id = dominoGenerator('dominoId');
             newState.push(action.payload);
             localStorage.setItem('dominos', JSON.stringify(newState));
-
+            break;
         default: newState = state;
+    }
+    return newState;
+}
+
+export function messageReducer(state, action) {
+    const newState = { ...state };
+    switch (action.type) {
+        case SHOW_MESSAGE:
+            newState.text = action.payload;
+            newState.show = true;
+            break;
+        case HIDE_MESSAGE:
+            newState.show = false;
+            break;
+        default:
     }
     return newState;
 }
