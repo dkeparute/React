@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { addDomino, getDominos } from "./Actions/domino";
 import Create from "./Components/Domino/Create";
+import Message from "./Components/Domino/Message";
 import { dominosReducer } from "./Reducer/dominoReducer";
 
 // 0
@@ -19,8 +20,10 @@ function App() {
     }
     return (
         <div className='domino'>
+
             <h1>Let's play Domino</h1>
             <Create create={create} />
+            <Message />
         </div>
     );
 }
