@@ -34,8 +34,8 @@ function Create() {
             </div>
             <div className='domino_create_body'>
                 <div>
-                    <input type="text" style={{backgroundColor: plate.leftErr ? '#f7ecd4' : 'white'}} onChange={(e) => handleInput(e, 'left')} value={plate.left} />
-                    <input type="text" style={{backgroundColor: plate.rightErr ? '#f7ecd4' : 'white'}} onChange={(e) => handleInput(e, 'right')} value={plate.right} />
+                    <input type="text" style={{backgroundColor: plate.leftErr ? 'red' : 'white'}} onChange={(e) => handleInput(e, 'left')} value={plate.left} />
+                    <input type="text" style={{backgroundColor: plate.rightErr ? 'red' : 'white'}} onChange={(e) => handleInput(e, 'right')} value={plate.right} />
                 </div>
                 <button>Create</button>
             </div>

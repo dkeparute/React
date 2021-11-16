@@ -7,12 +7,29 @@ export function dominoReducer(state, action) {
     // tada svitchina action tipa
     switch (action.type) {
         case ADD_LEFT:
-            newState.left = action.payload;
+            let number = parseInt(action.payload);
+            if (isNaN(number)) {
+                number = 0;
+            }
+            else if (number > 6) {
+                number = 6;
+            }
+            else if (number < 0) {
+                number = 0;
+            }
+            // butinai reikia dvigubos lygybes nes action visad abus stringas
+            if (number == action.payload) {
+                newState.leftErr = false;
+            }
+            else {
+                newState.leftErr = true;
+            }
+            newState.left = number;
             break;
         case ADD_RIGHT:
             newState.right = action.payload;
             break;
-            // kad nepyktu reaktas
+        // kad nepyktu reaktas
         default:
     }
     return newState;
