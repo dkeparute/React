@@ -1,4 +1,4 @@
-import { ADD_LEFT, ADD_RIGHT } from "../Contstants/dominoTypes";
+import { ADD_LEFT, ADD_RIGHT, GET_DOMINOS } from "../Contstants/dominoTypes";
 
 // 5. jis gauna state ir action objekta ir grazina nauja state
 export function dominoReducer(state, action) {
@@ -51,10 +51,18 @@ export function dominoReducer(state, action) {
     return newState;
 }
 
-export function dominosReducer(state, action){
-    let  newState = { ...state };
-    switch(action.type) {
-
+export function dominosReducer(state, action) {
+    let newState;
+    switch (action.type) {
+        case GET_DOMINOS:
+            const dominos = localStorage.getItem('dominos');
+            if (null === dominos) {
+                newState = [];
+            } else {
+                newState = dominos;
+            }
+            break;
+        default: newState = state;
     }
     return newState;
 }
