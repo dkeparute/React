@@ -1,10 +1,30 @@
 import { useReducer } from "react";
-//1
+import { add_left } from "../../Actions/domino";
+import { add_right } from "../../Actions/domino";
+import { dominoReducer } from "../../Reducer/dominoReducer";
+
+//1 komponentas turi buti kuo maziau uzkimstas biznio logika, o reduceris yra ta vieta kur galima rasyti logikos variacijas
 
 function Create() {
 
-const [plate, dispatchPlate] = useReducer(dominoPlateReducer, {left: 0, rigt: 0});
- 
+    const [plate, dispatchPlate] = useReducer(dominoReducer, {
+        left: 0,
+        // padarysim jog rodytu klaida jeigu blogai ivesta info
+        leftErr: false,
+        right: 0,
+        // padarysim jog rodytu klaida jeigu blogai ivesta info
+        rightErr: false
+    });
+
+    // eventas
+    const handleInput = (e, p) => {
+        if ('left' === p) {
+            dispatchPlate(add_left(e.target.value));
+        }
+        if ('right' === p) {
+            dispatchPlate(add_right(e.target.value));
+        }
+    }
 
 
     return (
@@ -14,8 +34,8 @@ const [plate, dispatchPlate] = useReducer(dominoPlateReducer, {left: 0, rigt: 0}
             </div>
             <div className='domino_create_body'>
                 <div>
-                    <input type="text" onChange={() => handleInput('left')}/>
-                    <input type="text" onChange={() => handleInput('right')} />
+                    <input type="text" style={{backgroundColor: plate.leftErr ? '#f7ecd4' : 'white'}} onChange={(e) => handleInput(e, 'left')} value={plate.left} />
+                    <input type="text" style={{backgroundColor: plate.rightErr ? '#f7ecd4' : 'white'}} onChange={(e) => handleInput(e, 'right')} value={plate.right} />
                 </div>
                 <button>Create</button>
             </div>
