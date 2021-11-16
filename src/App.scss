@@ -231,16 +231,9 @@ input {
 }
 
 .reducer {
-  h1{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    flex-direction: row;
-  }
-  .reducer-butons {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    flex-direction: row;
+  &__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 }

@@ -1,43 +1,38 @@
-import { useReducer, useState } from "react";
-import { actionAddOne, actionDoMUltiply } from "./Actions";
-import { actionRemOneOne } from "./Actions";
+import { useState, useReducer } from "react";
 import countReducer from "./Reducer/countReducer";
-
+import { actionAddOne, actionRemOneOne } from "./Actions";
+import { actionDoMultiplay } from "./Actions";
 function App() {
 
-
     const [multi, setMulti] = useState(0);
-    const handlemulti = e => setMulti(e.target.value);
+    const handleMulti = e => setMulti(e.target.value);
 
     // const [count, setCount] = useState(0);
     const [count, countDispatch] = useReducer(countReducer, 0);
 
+    // const addOne = () => setCount(count + 1);
     const addOne = () => countDispatch(actionAddOne());
-    // const addOne = () => {
-    //     setCount(count + 1);
-    // }
-    const remOneOne = () => countDispatch(actionRemOneOne());
-    // const remOneOne = () => {
-    //     setCount(count - 1);
-    // }
-    // const multiply = () => {
-    //     setCount(count * multi);
-    // }
 
-const multiply = () => countDispatch(actionDoMUltiply());
+    // const remOneOne = () => setCount(count - 11);
+    const remOneOne = () => countDispatch(actionRemOneOne());
+
+    // const multiply = () => setCount(count * multi);
+    const multiply = () => countDispatch(actionDoMultiplay(multi));
+
+    
 
     return (
-        <div className='reducer'>
+        <div className="reducer">
             <h1>Hello, Reducer!</h1>
             <h1>{count}</h1>
-            <div className='reducer-butons'>
-                <button onClick={addOne}>Add more</button>
-                <button onClick={remOneOne}>Less more</button>
-                <input type="text" value={multi} onChange={handlemulti} />
-                <button onCLick={multiply}>Multiply</button>
+            <div className="reducer__buttons">
+                <button onClick={addOne}>+1</button>
+                <button onClick={remOneOne}>-11</button>
+                <input type="text" value={multi} onChange={handleMulti}/>
+                <button onClick={multiply}>X</button>
             </div>
         </div>
-    );
-
+    )
 }
+
 export default App;

@@ -8,14 +8,14 @@ export function actionAddOne() {
 }
 export function actionRemOneOne() {
 
-    return{
-        type:REM_ONE_ONE
+    return {
+        type: REM_ONE_ONE
     }
 }
 
-export function actionDoMUltiply(payload) {
-return {
-    type: DO_MULTIPLY,
-    payload: payload
-}
+export function actionDoMultiplay(payload) {
+    return {
+        type: DO_MULTIPLY,
+        payload: payload
+    }
 }
