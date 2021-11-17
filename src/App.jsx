@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { addDomino, getDominos, hideMessage, showMessage } from "./Actions/domino";
 import Create from "./Components/Domino/Create";
 import Message from "./Components/Domino/Message";
@@ -14,6 +14,8 @@ function App() {
         show: false
     });
 
+    const [editId, setEditId] = useState(0);
+
     // call bekas ir tuscias masyvas reiskia jog useeffectas pasileis kai komponentas uzikraus
     useEffect(() => {
         dispachDominos(getDominos());
@@ -27,12 +29,15 @@ function App() {
     }
     return (
         <div className='domino'>
-            {
-                dominos.map(p => <Plate key={p.id} plate={p}></Plate>)
-            }
             <h1>Let's play Domino</h1>
             <Create create={create} />
             <Message msg={message} />
+            <div className='domino_table'>
+            {
+                dominos.map(p => <Plate key={p.id} plate={p} editId={editId} selectEdit={setEditId}></Plate>)
+            }
+            </div>
+            
         </div>
     );
 }

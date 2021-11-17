@@ -3,7 +3,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    &_message{
+    &_edit {
+        width: 132px;
+        margin: 30px 0 0 0;
+        input {
+            margin: -1px;
+            width: 50px;
+            font-size: 30px;
+            border: 2px solid #262524;
+            outline: none;
+            text-align: center;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        &_ok {
+            cursor: pointer;
+        }
+    }
+    &_table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 70%;
+    }
+    &_message {
         background-color: #f7ecd4;
         padding: 10px;
         margin-top: 10px;

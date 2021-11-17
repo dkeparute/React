@@ -1,12 +1,13 @@
 @import "./App.scss";
 @import "./zoo.scss";
 @import './Domino.scss';
+@import './DominoDesign.scss';
 
 body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
