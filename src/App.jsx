@@ -14,7 +14,7 @@ function App() {
         show: false
     });
 
-    const [editId, setEditId] = useState(0);
+    const [editDots, setEditDots] = useState({ left: 0, right: 0, id: 0 });
 
     // PRASIDEDA CRUDAS-----------------------------------------------------
 
@@ -42,6 +42,31 @@ function App() {
 
     }
 
+    // EDIT INPUT CONTROL
+    const selectEdit = (domino) => {
+        setEditDots(domino);
+    }
+
+    const save = () => {
+        update(editDots.id, {
+            left: editDots.left,
+            right: editDots.right
+        });
+        setEditDots({ left: 0, right: 0, id: 0 });
+    }
+
+    const change = (side, dots) => {
+        const copyeditDots = { ...editDots };
+        if ('left' === side) {
+            copyeditDots.left = dots;
+        }
+        else if ('right' === side) {
+            copyeditDots.right = dots;
+        }
+        setEditDots(copyeditDots);
+    }
+
+
     return (
         <div className='domino'>
             <h1>Let's play Domino</h1>
@@ -51,9 +76,11 @@ function App() {
                 {
                     dominos.map(p => <Plate
                         key={p.id}
+                        change={change}
                         plate={p}
-                        editId={editId}
-                        selectEdit={setEditId}
+                        save={save}
+                        editDots={editDots}
+                        selectEdit={selectEdit}
                         del={deleteDomino}
                     ></Plate>)
                 }

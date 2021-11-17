@@ -1,5 +1,5 @@
 
-function Edit({ plate, del , change, save}) {
+function Edit({ plate, del , change, save, editDots}) {
 
     const handleDelete = () => {
         del(plate.id);
@@ -16,8 +16,8 @@ function Edit({ plate, del , change, save}) {
     return (
         <div className='domino_edit' >
             <div>
-                <input value={plate.left} onChange={(e) => handleInputs(e,'left' )}></input>
-                <input value={plate.right} onChange={(e) => handleInputs(e,'right' )}></input>
+                <input value={editDots.left} onChange={(e) => handleInputs(e,'left' )}></input>
+                <input value={editDots.right} onChange={(e) => handleInputs(e,'right' )}></input>
             </div>
             <div className='domino_buttons'>
                 <div className='domino_buttons_ok' onClick={handleSave}>✅ </div>

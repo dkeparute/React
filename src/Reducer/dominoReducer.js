@@ -82,8 +82,8 @@ export function dominosReducer(state, action) {
             break;
         case UPDATE_DOMINO:
             i = newState.findIndex(domino => domino.id === action.payload.id);
-            newState[i].left = action.payload.left;
-            newState[i].right = action.payload.right;
+            newState[i].left = parseInt(action.payload.left);
+            newState[i].right = parseInt(action.payload.right);
             localStorage.setItem('dominos', JSON.stringify(newState));
             break;
         case DEL_DOMINO:
