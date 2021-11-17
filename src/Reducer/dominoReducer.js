@@ -1,5 +1,5 @@
 import dominoGenerator from "../Common/dominoGenerator";
-import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, DEL_DOMINO, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
+import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, DEL_DOMINO, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE, UPDATE_DOMINO } from "../Contstants/dominoTypes";
 
 export const startPos = {
     left: 0,
@@ -7,6 +7,8 @@ export const startPos = {
     right: 0,
     rightErr: false
 }
+
+
 // 5. jis gauna state ir action objekta ir grazina nauja state
 export function dominoReducer(state, action) {
     // kadangi bus keiciama dalis steito, tada tikslinga pasidaryti kopija
@@ -63,6 +65,7 @@ export function dominoReducer(state, action) {
 
 export function dominosReducer(state, action) {
     let newState = [...state];
+    let i;
     switch (action.type) {
         case GET_DOMINOS:
             const dominos = localStorage.getItem('dominos');
@@ -77,10 +80,16 @@ export function dominosReducer(state, action) {
             newState.push(action.payload);
             localStorage.setItem('dominos', JSON.stringify(newState));
             break;
+        case UPDATE_DOMINO:
+            i = newState.findIndex(domino => domino.id === action.payload.id);
+            newState[i].left = action.payload.left;
+            newState[i].right = action.payload.right;
+            localStorage.setItem('dominos', JSON.stringify(newState));
+            break;
         case DEL_DOMINO:
-           const i = newState.findIndex(domino => domino.id === action.payload);
-           newState.splice(i, 1);
-           localStorage.setItem('dominos', JSON.stringify(newState));
+            i = newState.findIndex(domino => domino.id === action.payload);
+            newState.splice(i, 1);
+            localStorage.setItem('dominos', JSON.stringify(newState));
             break;
         default: newState = state;
     }

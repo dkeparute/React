@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { addDomino, delDomino, getDominos, hideMessage, showMessage } from "./Actions/domino";
+import { addDomino, delDomino, getDominos, hideMessage, showMessage, updateDomino } from "./Actions/domino";
 import Create from "./Components/Domino/Create";
 import Message from "./Components/Domino/Message";
 import Plate from "./Components/Domino/Plate";
@@ -34,6 +34,12 @@ function App() {
 
     const deleteDomino = (id) => {
         dispachDominos(delDomino(id));
+    }
+
+    // NODE UPDATE
+    const update = (id, domino) => {
+        dispachDominos(updateDomino(id, domino));
+
     }
 
     return (

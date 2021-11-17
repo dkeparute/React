@@ -1,11 +1,11 @@
 import Dot from "./Dot";
 import Edit from "./Edit";
 
-function Plate({ plate, editId, selectEdit, del }) {
+function Plate({ plate, editId, selectEdit, del, change, save }) {
 
     if (plate.id == editId) {
         return (
-            <Edit plate={plate} del={del}></Edit>
+            <Edit plate={plate} del={del} change={change} save={save}></Edit>
         )
     }
     return (
