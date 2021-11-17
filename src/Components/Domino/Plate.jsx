@@ -1,15 +1,15 @@
 import Dot from "./Dot";
 import Edit from "./Edit";
 
-function Plate({ plate, editId, selectEdit }) {
+function Plate({ plate, editId, selectEdit, del }) {
 
-    if(plate.id == editId) {
-        return(
-           <Edit plate={plate}></Edit>
+    if (plate.id == editId) {
+        return (
+            <Edit plate={plate} del={del}></Edit>
         )
     }
     return (
-        <div className='plate'onClick={() =>selectEdit(plate.id)}>
+        <div className='plate' onClick={() => selectEdit(plate.id)}>
             <div className="left-half">
                 <Dot dots={plate.left} />
             </div>

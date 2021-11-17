@@ -1,4 +1,4 @@
-import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
+import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, DEL_DOMINO, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
 
 // 4. susidesime action kuriu reikes vykdyti siai aplikacijai
 export function addLeft(payload) {
@@ -16,8 +16,8 @@ export function addRight(payload) {
 }
 
 export function resetLeftRight() {
-    return{
-        type:RESET_LEFT_RIGHT
+    return {
+        type: RESET_LEFT_RIGHT
     }
 }
 
@@ -42,7 +42,14 @@ export function showMessage(text) {
 }
 
 export function hideMessage() {
-    return{
+    return {
         type: HIDE_MESSAGE
+    }
+}
+
+export function delDomino(id) {
+    return {
+        type: DEL_DOMINO,
+        payload: id
     }
 }

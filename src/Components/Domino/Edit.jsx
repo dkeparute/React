@@ -1,11 +1,21 @@
 
-function Edit({ plate }) {
+function Edit({ plate, del }) {
+
+    const handleDelete = () => {
+        del(plate.id);
+    }
 
     return (
         <div className='domino_edit' >
-            <input value={plate.left}></input>
-            <input value={plate.right}></input>
-            <div className='domino_edit_ok'>✅ </div>
+            <div>
+                <input value={plate.left}></input>
+                <input value={plate.right}></input>
+            </div>
+            <div className='domino_buttons'>
+                <div className='domino_buttons_ok'>✅ </div>
+                <div className='domino_buttons_delete' onClick={handleDelete}>❌</div>
+            </div>
+
         </div>
     );
 }

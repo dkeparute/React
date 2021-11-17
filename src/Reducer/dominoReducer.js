@@ -1,5 +1,5 @@
 import dominoGenerator from "../Common/dominoGenerator";
-import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
+import { ADD_DOMINO, ADD_LEFT, ADD_RIGHT, DEL_DOMINO, GET_DOMINOS, HIDE_MESSAGE, RESET_LEFT_RIGHT, SHOW_MESSAGE } from "../Contstants/dominoTypes";
 
 export const startPos = {
     left: 0,
@@ -76,6 +76,11 @@ export function dominosReducer(state, action) {
             action.payload.id = dominoGenerator('dominoId');
             newState.push(action.payload);
             localStorage.setItem('dominos', JSON.stringify(newState));
+            break;
+        case DEL_DOMINO:
+           const i = newState.findIndex(domino => domino.id === action.payload);
+           newState.splice(i, 1);
+           localStorage.setItem('dominos', JSON.stringify(newState));
             break;
         default: newState = state;
     }

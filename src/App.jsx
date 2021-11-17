@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { addDomino, getDominos, hideMessage, showMessage } from "./Actions/domino";
+import { addDomino, delDomino, getDominos, hideMessage, showMessage } from "./Actions/domino";
 import Create from "./Components/Domino/Create";
 import Message from "./Components/Domino/Message";
 import Plate from "./Components/Domino/Plate";
@@ -16,28 +16,43 @@ function App() {
 
     const [editId, setEditId] = useState(0);
 
-    // call bekas ir tuscias masyvas reiskia jog useeffectas pasileis kai komponentas uzikraus
+    // PRASIDEDA CRUDAS-----------------------------------------------------
+
+    // NODE READ
     useEffect(() => {
         dispachDominos(getDominos());
 
     }, [])
 
+    // NODE CREATE
     const create = (domino) => {
         dispachDominos(addDomino(domino));
         dispachMessage(showMessage('New Domino plate was created!'));
         setTimeout(() => { dispachMessage(hideMessage()) }, 3000);
     }
+    // NODE DELETE
+
+    const deleteDomino = (id) => {
+        dispachDominos(delDomino(id));
+    }
+
     return (
         <div className='domino'>
             <h1>Let's play Domino</h1>
             <Create create={create} />
             <Message msg={message} />
             <div className='domino_table'>
-            {
-                dominos.map(p => <Plate key={p.id} plate={p} editId={editId} selectEdit={setEditId}></Plate>)
-            }
+                {
+                    dominos.map(p => <Plate
+                        key={p.id}
+                        plate={p}
+                        editId={editId}
+                        selectEdit={setEditId}
+                        del={deleteDomino}
+                    ></Plate>)
+                }
             </div>
-            
+
         </div>
     );
 }
